@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Recibos APP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,51 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Recibos APP</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <!-- <ion-img src="http://192.168.20.20:3000/archivo/ABC123.jpg"> -->
+
+          <!-- <ion-img src="https://servicios-au.s3.amazonaws.com/ABC123.jpg?AWSAccessKeyId=AKIA4EEOX66KEBXUG3XJ&Expires=1674791512&Signature=Zak%2Fy7ZWMdlxt%2B9bSOVTppeECrA%3D"></ion-img> -->
+
+        <!-- </ion-img> -->
+        <!-- <ion-thumbnail>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-img  style="width:350px" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/01/18/16740384482875.jpg"></ion-img> -->
+        <ion-button (click)="crearRecibo()" expand="block" class="ion-margin">
+          Crear Post
+        </ion-button>
+        <ion-button (click)="abrirCamara()" expand="block" class="ion-margin" *ngIf="crearPostOk">
+          Abrir Camara
+        </ion-button>
+        <ion-button (click)="obtenerRecibo()" expand="block" class="ion-margin" *ngIf="fotoEnAmazon">
+          Cargar Recibo de Prueba
+        </ion-button>
+        <ion-card *ngIf="reciboCargado">
+          <img alt="Foto del Producto" [src]="recibo.url" />
+          <ion-card-header>
+            <ion-card-title>{{ recibo.cliente }}</ion-card-title>
+            <ion-card-subtitle>{{ recibo.total | currency }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ recibo.etiqueta }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row *ngFor="let photo of photos">
+      <ion-col size="12">
+        <p>Foto: {{ photo }}</p>
+        <ion-img [src]="photo" alt="Product"></ion-img>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+
 </ion-content>

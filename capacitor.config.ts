@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'recibosApp',
+  appId: 'com.almacenesuniversal.recibosApp',
+  appName: 'Recibos App',
   webDir: 'www',
   bundledWebRuntime: false
 };
